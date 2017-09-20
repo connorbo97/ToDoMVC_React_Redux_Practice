@@ -5,8 +5,8 @@ import { addTodo } from '../actions'
 let AddTodo = ({ dispatch }) => {
   let input
 
-  return (
-    <div>
+return (
+   <div>
       <form
         onSubmit={e => {
           e.preventDefault()
@@ -17,14 +17,12 @@ let AddTodo = ({ dispatch }) => {
           input.value = ''
         }}
       >
-        <input
-          ref={node => {
+
+        <input ref={node => {
             input = node
           }}
+          className="new-todo" placeholder="What needs to be done?" autoFocus
         />
-        <button type="submit">
-          Add Todo
-        </button>
       </form>
     </div>
   )

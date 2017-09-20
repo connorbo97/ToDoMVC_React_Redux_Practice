@@ -22,6 +22,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onTodoClick: id => {
+      document.getElementById("checkbox" + id).checked = !(document.getElementById("checkbox" + id).checked);
       dispatch(toggleTodo(id))
     }
   }

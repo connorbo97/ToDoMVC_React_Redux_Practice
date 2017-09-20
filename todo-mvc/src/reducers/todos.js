@@ -1,4 +1,18 @@
-const todos = (state = [], action) => {
+ const initialState = [
+        {
+          id: 0,
+          text: "Taste Javascript",
+          completed: true
+        },
+        {
+          id: 1,
+          text: "Buy a unicorn",
+          completed: false
+        },
+      ];
+
+const todos = (state = initialState, action) => {
+ 
   switch (action.type) {
     case 'ADD_TODO':
       return [

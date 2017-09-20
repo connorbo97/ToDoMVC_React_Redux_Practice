@@ -11,15 +11,14 @@ const hey = (e) => {
 const App = () => (
   <div>
     <section className="todoapp">
-    <Header />
+   		<Header />
     	<section className="main">
         	<input id="toggle-all" className="toggle-all" type="checkbox" />
    			<label htmlFor="toggle-all">Mark all as complete</label>
-
-   				<VisibleTodoList/>
+			<VisibleTodoList/>
    		</section>
-   </section>
-    <Footer />
+  		<Footer />
+   	</section>
   </div>
 )
 

@@ -23,6 +23,19 @@ const todos = (state = initialState, action) => {
           completed: false
         }
       ]
+
+    case 'MARKALLCOMPLETED_TODO': 
+      return state.map(todo =>
+        (true)
+          ? {...todo, completed: true}
+          : todo
+      )
+
+    case 'DELETE_TODO': 
+      return state.filter(todo =>
+        (todo.id !== action.id)
+      )
+
     case 'TOGGLE_TODO':
       return state.map(todo =>
         (todo.id === action.id) 

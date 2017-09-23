@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import { toggleTodo } from '../actions'
+import { deleteTodo } from '../actions'
 import TodoList from '../components/TodoList'
 
 const getVisibleTodos = (todos, filter) => {
@@ -24,6 +25,12 @@ const mapDispatchToProps = dispatch => {
     onTodoClick: id => {
       document.getElementById("checkbox" + id).checked = !(document.getElementById("checkbox" + id).checked);
       dispatch(toggleTodo(id))
+    }, 
+    onTodoChange: id => {
+      dispatch(toggleTodo(id))
+    },
+    onTodoDelete: id => {
+      dispatch(deleteTodo(id))
     }
   }
 }

@@ -1,34 +1,35 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const hey = (e) => {
-  console.log('hey');
-}
+/*
 
-class Todo extends React.Component {
-  render() {
-    if(this.props.completed == true){
+      <li className="editing">
+          <input className="edit" autoFocus defaultValue={text}   />
+      </li>
+
+*/
+
+const Todo = ({onClick, onChange, onDelete, completed, text, id}) => {
+  if(completed === true){
+    return (
+    <li className='completed' >
+      <div className="view">
+        <input className="toggle" id={"checkbox" + id} type="checkbox" defaultChecked onChange={onChange}/>
+        <label  onClick={onClick}>{text}</label>
+        <button className="destroy" onClick={onDelete}></button>
+      </div>
+    </li>
+   )
+  } else {
       return (
-      <li className='completed'>
+      <li>
         <div className="view">
-          <input className="toggle" id={"checkbox" + this.props.id} type="checkbox" defaultChecked onChange={this.props.onChange}/>
-          <label onClick={this.props.onClick}>{this.props.text}</label>
-          <button className="destroy" onClick={this.props.onDelete}></button>
+          <input className="toggle" id={"checkbox" + id} type="checkbox" onChange={onChange}/>
+          <label  onClick={onClick}>{text}</label>
+          <button className="destroy" onClick={onDelete}></button>
         </div>
       </li>
      )
-    } else {
-        return (
-        <li className='nothing' >
-          <div className="view">
-            <input className="toggle" id={"checkbox" + this.props.id} type="checkbox" onChange={this.props.onChange}/>
-            <label onClick={this.props.onClick}>{this.props.text}</label>
-            <button className="destroy" onClick={this.props.onDelete}></button>
-          </div>
-        </li>
-       )
-    }
-
   }
 }
 

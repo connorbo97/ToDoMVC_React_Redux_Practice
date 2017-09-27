@@ -11,6 +11,8 @@ const getVisibleTodos = (todos, filter) => {
       return todos.filter(t => t.completed)
     case 'SHOW_ACTIVE':
       return todos.filter(t => !t.completed)
+    default:
+      return todos
   }
 }
 
@@ -23,7 +25,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onTodoClick: id => {
-      document.getElementById("checkbox" + id).checked = !(document.getElementById("checkbox" + id).checked);
+      if(document.getElementById("checkbox" + id) !== null)
+        document.getElementById("checkbox" + id).checked = !(document.getElementById("checkbox" + id).checked);
       dispatch(toggleTodo(id))
     }, 
     onTodoChange: id => {

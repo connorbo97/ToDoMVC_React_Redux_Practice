@@ -3,10 +3,7 @@ import { markAllCompleted } from '../actions'
 import MarkAllButton from '../components/MarkAllButton'
 
 
-const mapStateToProps = state => {
-  return {
-  }
-}
+const mapStateToProps = state => ({})
 
 
 const mapDispatchToProps = dispatch => {

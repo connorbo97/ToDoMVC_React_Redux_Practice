@@ -1,5 +1,12 @@
 let nextTodoId = 2
+if(localStorage.getItem("id") === null){
+  localStorage.setItem("id", 2);
+} else {
+  nextTodoId = parseInt(localStorage.getItem("id"));
+}
 export const addTodo = text => {
+
+  localStorage.setItem("id", nextTodoId + 1 )
   return {
     type: 'ADD_TODO',
     id: nextTodoId++,
@@ -12,6 +19,15 @@ export const deleteTodo = id => {
   return {
     type: 'DELETE_TODO',
     id
+  }
+}
+
+
+
+export const deleteCompleted = () => {
+  return {
+    type: 'DELETE_COMPLETED',
+    id: -1
   }
 }
 

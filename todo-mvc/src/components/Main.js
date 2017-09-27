@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import MarkAllCompletedButton from '../containers/MarkAllCompletedButton'
 
 const Main = ({length}) => {
-	if(length != 0){
+	if(length !== 0){
 		return (
 			<section className="main">
 				<MarkAllCompletedButton/>

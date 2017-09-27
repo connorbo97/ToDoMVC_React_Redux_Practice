@@ -3,12 +3,23 @@ import PropTypes from 'prop-types'
 
 const Link = ({ active, children, onClick }) => {
   if (active) {
-    return <span>{children}</span>
+    return (<span>
+      <a className="selected"
+        href= {"#/" + children}
+        onClick={e => {
+          e.preventDefault()
+          onClick()
+        }}
+      >
+        {children}
+      </a>
+    </span>
+    )
   }
-
   return (
+    <span>
     <a
-      href="#"
+      href={"#/" + children}
       onClick={e => {
         e.preventDefault()
         onClick()
@@ -16,6 +27,8 @@ const Link = ({ active, children, onClick }) => {
     >
       {children}
     </a>
+  </span>
+
   )
 }
 

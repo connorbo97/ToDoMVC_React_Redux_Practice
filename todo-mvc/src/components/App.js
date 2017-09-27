@@ -1,9 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Header from './Header'
-import Footer from './Footer'
-import AddTodo from '../containers/AddTodo'
-import VisibleTodoList from '../containers/VisibleTodoList'
+import FooterContainer from '../containers/FooterContainer'
 import Main from './Main'
 import PropTypes from 'prop-types'
 import BottomText from './BottomText'
@@ -15,7 +13,7 @@ const App = ({todos}) => {
 	    <section className="todoapp">
 	   		<Header />
 	   		<Main length={todos.length}/>
-	  		<Footer length={todos.length}/>
+	  		<FooterContainer/>
 	   	</section>
 	   	<BottomText />
 	  </div>

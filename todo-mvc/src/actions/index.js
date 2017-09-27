@@ -23,6 +23,13 @@ export const deleteTodo = id => {
 }
 
 
+export const toggleEdit = (id, text) => {
+  return {
+    type: 'TOGGLE_EDIT',
+    text: text,
+    id
+  }
+}
 
 export const deleteCompleted = () => {
   return {

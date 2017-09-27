@@ -4,17 +4,24 @@
       {
         id: 0,
         text: "Taste Javascript",
-        completed: true
+        completed: true,
+        edit: false
       },
       {
         id: 1,
         text: "Buy a unicorn",
-        completed: false
+        completed: false,
+        edit: false
       },
     ];
     localStorage.setItem("todos-[framework]", JSON.stringify(initialState))
   } else {
     initialState = JSON.parse(localStorage.getItem("todos-[framework]"));
+    initialState = initialState.map(todo =>
+        (todo.edit)
+          ? {...todo, edit: false}
+          : todo
+      )
   }
  
 var updatedState
@@ -28,7 +35,8 @@ const todos = (state = initialState, action) => {
         {
           id: action.id,
           text: action.text,
-          completed: false
+          completed: false,
+          edit: false
         }
       ]
 
@@ -64,6 +72,15 @@ const todos = (state = initialState, action) => {
       )
       localStorage.setItem("todos-[framework]", JSON.stringify(updatedState))
       return updatedState
+
+    case 'TOGGLE_EDIT':
+    updatedState =  state.map(todo =>
+      (todo.id === action.id) 
+        ? {...todo, edit: !todo.edit, text: action.text}
+        : todo
+    )
+    localStorage.setItem("todos-[framework]", JSON.stringify(updatedState))
+    return updatedState
 
     default:
       return state
